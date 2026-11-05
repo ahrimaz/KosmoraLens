@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Kosmora Lens",
+  "short_name": "Lens",
+  "version": "0.8.0",
+  "description": "Read-only quality-of-life overlay for Kosmora: price history and market stats on hover, ownership and family-tier badges, spares and fusion planner, and pre-round Pulsar insights.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://kosmora.io/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kosmora.io/*"
+      ],
+      "js": [
+        "src/hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://kosmora.io/*"
+      ],
+      "js": [
+        "src/content.js",
+        "src/pulsar.js",
+        "src/cardpage.js",
+        "src/fusionpage.js"
+      ],
+      "css": [
+        "src/lens.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kosmora-lens@ahrima",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
+}

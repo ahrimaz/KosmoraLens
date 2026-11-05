@@ -1,0 +1,17 @@
+# Build output
+dist/
+inject.js
+b/
+
+# Local / assistant files
+docs/
+CLAUDE.md
+.claude/
+AGENTS.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
